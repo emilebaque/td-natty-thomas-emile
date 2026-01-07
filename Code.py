@@ -65,7 +65,7 @@ print(df)
 def enrichissement(cve_id):
     url=f"https://cveawg.mitre.org/api/cve/{cve_id}"
     try:
-        r = requests.get(url, timeout=10)
+        r = requests.get(url)
         if r.status_code != 200:
             return {
                 "description": None,
@@ -140,7 +140,7 @@ def enrichissement(cve_id):
 def get_epss_score(cve_id):
     url = f"https://api.first.org/data/v1/epss?cve={cve_id}"
     try:
-        r = requests.get(url, timeout=10)
+        r = requests.get(url)
         if r.status_code != 200:
             return None
         data = r.json()
